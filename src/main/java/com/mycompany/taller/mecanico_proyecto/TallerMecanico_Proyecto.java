@@ -11,6 +11,6 @@ package com.mycompany.taller.mecanico_proyecto;
 public class TallerMecanico_Proyecto {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        System.out.println("Proyecto Taller");
     }
 }
