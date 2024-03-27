@@ -28,15 +28,13 @@ public class TallerMecanico_Proyecto {
                 case 1:
                     id = JOptionPane.showInputDialog("Digite su id:");
                     nombre = JOptionPane.showInputDialog("Digite su nombre:");
-                    telefono = JOptionPane.showInputDialog("Digite su telefono:");
-                    taller.inicioSesion(Integer.parseInt(id), nombre, telefono);
+                    taller.inicioSesion(Integer.parseInt(id), nombre);
                     
                     break;
                 case 2:
                     id = JOptionPane.showInputDialog("Digite su id:");
                     nombre = JOptionPane.showInputDialog("Digite su nombre:");
                     telefono = JOptionPane.showInputDialog("Digite su telefono:");
-                    taller.inicioSesion(Integer.parseInt(id), nombre, telefono);
                     
                     taller.crearCliente(Integer.parseInt(id), nombre, telefono);
                     break;

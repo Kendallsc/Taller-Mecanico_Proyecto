@@ -13,33 +13,31 @@ import javax.swing.JOptionPane;
 public class TallerMecanico {
 
     Cliente cliente;
-    ArchivosClientes archivosClientes = new ArchivosClientes();
+    GestionClientes gestionClientes = new GestionClientes();
 
     public void crearCliente(int id, String nombre, String telefono) {
         try {
 
             cliente = new Cliente(id, nombre, telefono);
 
-            archivosClientes.agregar(id, nombre, telefono);
-
-            JOptionPane.showMessageDialog(null, "Cliente Guardado!", "Agregar Datos", JOptionPane.INFORMATION_MESSAGE);
-
+            gestionClientes.insertarCliente(cliente.getIdCliente(), cliente.getNombre(), cliente.getTelefono());
+            
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }
 
-    public void inicioSesion(int id, String nombre, String telefono) {
+    public void inicioSesion(int id, String nombre) {
 
         try {
-
-            boolean existeCliente = archivosClientes.buscar(id, nombre, telefono);
-
-            if (existeCliente) {
-
-                JOptionPane.showMessageDialog(null, "Inicio de Sesion exitoso puede continuar!", "Ingresando", JOptionPane.INFORMATION_MESSAGE);
-
-            } else {
+            
+            String cliente[] = new String[3];
+            cliente = gestionClientes.consultarClientesPorId(id, nombre);
+            
+            if(cliente[0] != null && cliente[1] != null && cliente[2] != null){
+                JOptionPane.showMessageDialog(null, "Inicio de Sesion exitoso puede continuar!  -  ID:" + cliente[0] + " - Nombre: " + cliente[1] + " - Telefono: " + cliente[2], "Ingresando", JOptionPane.INFORMATION_MESSAGE);
+            }
+            else {
 
                 JOptionPane.showMessageDialog(null, "No se encontro el usuario. Se cerrara la aplicacion!", "Inicio de Sesion Fallido", JOptionPane.INFORMATION_MESSAGE);
                 System.exit(0);
