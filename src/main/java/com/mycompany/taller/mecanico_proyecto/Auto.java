@@ -10,7 +10,6 @@ package com.mycompany.taller.mecanico_proyecto;
  */
 public class Auto {
     
-    private int id;
     private String modelo;
     private String placa;
     private boolean marchamoAlDia;
@@ -18,22 +17,13 @@ public class Auto {
     private boolean golpes;
     private String notasAdicionales;
 
-    public Auto(int id, String modelo, String placa, boolean marchamoAlDia, boolean rtvAlDia, boolean golpes, String notasAdicionales) {
-        this.id = id;
+    public Auto(String modelo, String placa, boolean marchamoAlDia, boolean rtvAlDia, boolean golpes, String notasAdicionales) {
         this.modelo = modelo;
         this.placa = placa;
         this.marchamoAlDia = marchamoAlDia;
         this.rtvAlDia = rtvAlDia;
         this.golpes = golpes;
         this.notasAdicionales = notasAdicionales;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getModelo() {
@@ -52,7 +42,7 @@ public class Auto {
         this.placa = placa;
     }
 
-    public boolean marchamoAlDia() {
+    public boolean getMarchamoAlDia() {
         return marchamoAlDia;
     }
 
@@ -60,7 +50,7 @@ public class Auto {
         this.marchamoAlDia = marchamoAlDia;
     }
 
-    public boolean rtvAlDia() {
+    public boolean getRtvAlDia() {
         return rtvAlDia;
     }
 
@@ -68,7 +58,7 @@ public class Auto {
         this.rtvAlDia = rtvAlDia;
     }
 
-    public boolean golpes() {
+    public boolean getGolpes() {
         return golpes;
     }
 
@@ -86,7 +76,7 @@ public class Auto {
     
     public String toString(){
         
-        String x = "Auto ID: " + id + " - Modelo: " + modelo + " - Placa: " + placa;
+        String x = "Modelo: " + modelo + " - Placa: " + placa;
         
         if(marchamoAlDia){
             x += " - Marchamo al dia?: SI";

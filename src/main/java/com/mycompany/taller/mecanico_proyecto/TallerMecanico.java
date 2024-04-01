@@ -12,13 +12,14 @@ import javax.swing.JOptionPane;
  */
 public class TallerMecanico {
 
-    Cliente cliente;
+    String cliente[];
     GestionClientes gestionClientes = new GestionClientes();
+    GestionAutos gestionAutos = new GestionAutos();
 
     public void crearCliente(int id, String nombre, String telefono) {
         try {
 
-            cliente = new Cliente(id, nombre, telefono);
+            Cliente cliente = new Cliente(id, nombre, telefono);
 
             gestionClientes.insertarCliente(cliente.getIdCliente(), cliente.getNombre(), cliente.getTelefono());
             
@@ -31,7 +32,7 @@ public class TallerMecanico {
 
         try {
             
-            String cliente[] = new String[3];
+            cliente = new String[3];
             cliente = gestionClientes.consultarClientesPorId(id, nombre);
             
             if(cliente[0] != null && cliente[1] != null && cliente[2] != null){
@@ -43,6 +44,58 @@ public class TallerMecanico {
                 System.exit(0);
             }
             
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    public void consultarAuto(){
+        
+        try {
+            gestionAutos.consultarAutos();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+           
+    }
+    
+    public void consultarAutoPorPlaca(String placaConsultar){
+        
+        try {
+            gestionAutos.consultarAutosPorPlaca(placaConsultar);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        
+    }
+    
+    public void insertarAuto(String modelo,String placa, boolean marchamo, boolean rtv, boolean golpes,String notasAdicionales){
+  
+        try {
+            Auto auto = new Auto(modelo, placa, marchamo, rtv, golpes, notasAdicionales);
+            
+            gestionAutos.insertarAuto(auto.getModelo(), auto.getPlaca(), auto.getMarchamoAlDia(), auto.getRtvAlDia(), auto.getGolpes(), auto.getNotasAdicionales());
+            
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        
+    }
+    
+    public void editarAuto(int id, String modelo,String placa, boolean marchamo, boolean rtv, boolean golpes,String notasAdicionales){
+                
+        try {
+            gestionAutos.modificarAuto(id, modelo, placa, marchamo, rtv, golpes, notasAdicionales);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+               
+    }
+    
+    public void eliminarAuto(int id){
+        
+        try {
+            gestionAutos.eliminarAuto(id);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

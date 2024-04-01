@@ -16,7 +16,18 @@ public class TallerMecanico_Proyecto {
         int opcion = 0;
         TallerMecanico taller = new TallerMecanico();
         String id, nombre, telefono;
-
+ 
+        /*
+        taller.insertarAuto("Toyota prado", "ABC-123", true, true, true, "Necesita Cambio de aceite");
+        taller.insertarAuto("Toyota Corolla", "ABC-456", true, true, true, "Necesita Cambio de aceite y alogenos");
+        taller.insertarAuto("Suzuki Swift", "QWE-123", true, true, false, "Cambio de ruedas");
+        */
+        
+        taller.consultarAuto();
+        System.out.println("-------------------------");
+        taller.consultarAutoPorPlaca("QWE-123");
+        taller.eliminarAuto(2);
+        
         while (opcion != 5) {
             opcion = Integer.parseInt(JOptionPane.showInputDialog(null, "Menú Principal:\n"
                     + "1 - Iniciar Sesion\n"
